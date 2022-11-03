@@ -1,0 +1,13 @@
+.tablo {
+	background-color: white;
+	border-style: solid;
+	border-width: 1px;
+	border-color: black;
+	line-height:25px;
+	overflow-x: auto;
+	border: 0;
+}
+.tablo tr>th, .tablo tr>td{
+	white-space: nowrap;
+	border: none;
+}
