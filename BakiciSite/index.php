@@ -5,6 +5,7 @@ include_once ("db.php");
 	if (isset($_GET['ara'])) { // Arama işlemleri
 
 		$aramaDeger = "";
+		$sirala = "";
 
 		if (isset($_GET['id'])) {
 			$aramaDeger .= "id='".$_GET['id']."' and ";
@@ -38,16 +39,44 @@ include_once ("db.php");
 			$aramaDeger .= "calisma='".$_GET['calisma']."' and ";
 		}
 
-		if (isset($_GET['durum'])) {
-			$aramaDeger .= "durum='".$_GET['durum']."' and ";
-		}
-
 		$aramaDegerSon = trim($aramaDeger, " and ");
 
+		if (isset($_GET['durum'])) {
+
+			
+			
+			if ($_GET['durum'] == "1") {
+
+				
+				$sirala .= "ORDER BY fiyat DESC LIMIT 1";
+
+			}elseif ($_GET['durum'] == "2") {
+				
+				$sirala .= "ORDER BY fiyat ASC LIMIT 1";
+			}elseif ($_GET['durum'] == "3") {
+
+				
+				$sirala .= "ORDER BY fiyat DESC";
+				
+			}elseif ($_GET['durum'] == "4") {
+
+				$sirala .= "ORDER BY fiyat ASC";
+			}
+
+			$_SESSION["durum"] 		= $_GET['durum'];
+			
+		}
+
 		if ($aramaDegerSon == "") {
-			$SQL = "SELECT * FROM bakicilar";
+
+			$SQL = "SELECT * FROM bakicilar $sirala";
+
+			
+
 		}else{
-			$SQL = "SELECT * FROM bakicilar WHERE $aramaDegerSon ORDER BY fiyat asc";
+			
+			$SQL = "SELECT * FROM bakicilar WHERE $aramaDegerSon $sirala";
+
 		}
 
 	}else{
@@ -277,10 +306,10 @@ include_once ("db.php");
 								<div class="col-sm-8">
 									<select class="form-select form-select-sm" id="durum" name="durum">
 										<option></option>
-										<option value="En Yüksek Fiyat" <?php if(isset($_SESSION['durum']) AND $_SESSION['durum'] == "En Yüksek Fiyat"){ echo "selected"; unset($_SESSION['durum']);} ?>>En Yüksek Fiyat</option>
-										<option value="En Düşük Fiyat" <?php if(isset($_SESSION['durum']) AND $_SESSION['durum'] == "En Düsük Fiyat"){ echo "selected"; unset($_SESSION['durum']);} ?>>En Düşük Fiyat</option>
-										<option value="En Yüksek Fiyattan En Düşük Fiyata" <?php if(isset($_SESSION['durum']) AND $_SESSION['durum'] == "En Yüksek Fiyattan En Düşük Fiyata"){ echo "selected"; unset($_SESSION['durum']);} ?>>En Yüksek Fiyattan En Düşük Fiyata</option>
-										<option value="En Düşük Fiyattan En Yüksek Fiyata" <?php if(isset($_SESSION['durum']) AND $_SESSION['durum'] == "En Düşük Fiyattan En Yüksek Fiyata"){ echo "selected"; unset($_SESSION['durum']);} ?>>En Düşük Fiyattan En Yüksek Fiyata</option>
+										<option value="1" <?php if(isset($_SESSION['durum']) AND $_SESSION['durum'] == "1"){ echo "selected"; unset($_SESSION['durum']);} ?>>En Yüksek Fiyat</option>
+										<option value="2" <?php if(isset($_SESSION['durum']) AND $_SESSION['durum'] == "2"){ echo "selected"; unset($_SESSION['durum']);} ?>>En Düşük Fiyat</option>
+										<option value="3" <?php if(isset($_SESSION['durum']) AND $_SESSION['durum'] == "3"){ echo "selected"; unset($_SESSION['durum']);} ?>>En Yüksek Fiyattan En Düşük Fiyata</option>
+										<option value="4" <?php if(isset($_SESSION['durum']) AND $_SESSION['durum'] == "4"){ echo "selected"; unset($_SESSION['durum']);} ?>>En Düşük Fiyattan En Yüksek Fiyata</option>
 						
                                                                         </select>
                                                                    
