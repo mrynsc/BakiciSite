@@ -177,8 +177,8 @@ include_once ("db.php");
 										<option value="Eskişehir" <?php if(isset($_SESSION['sehir']) AND $_SESSION['sehir'] == "Eskişehir"){ echo "selected"; unset($_SESSION['sehir']);} ?>>Eskişehir</option>
 										<option value="Gaziantep" <?php if(isset($_SESSION['sehir']) AND $_SESSION['sehir'] == "Gaziantep"){ echo "selected"; unset($_SESSION['sehir']);} ?>>Gaziantep</option>
 										<option value="Giresun" <?php if(isset($_SESSION['sehir']) AND $_SESSION['sehir'] == "Giresun"){ echo "selected"; unset($_SESSION['sehir']);} ?>>Giresun</option>
-										<option value="Gümüşhane" <?php if(isset($_SESSION['sehir']) AND $_SESSION['sehir'] == "Gümüşhane"){ echo "selected"; unset($_SESSION['sehir']);} ?>>Adana</option>
-										<option value="Hakkari" <?php if(isset($_SESSION['sehir']) AND $_SESSION['sehir'] == "Hakkari"){ echo "selected"; unset($_SESSION['sehir']);} ?>>Gümüşhane</option>
+										<option value="Gümüşhane" <?php if(isset($_SESSION['sehir']) AND $_SESSION['sehir'] == "Gümüşhane"){ echo "selected"; unset($_SESSION['sehir']);} ?>>Gümüşhane</option>
+										<option value="Hakkari" <?php if(isset($_SESSION['sehir']) AND $_SESSION['sehir'] == "Hakkari"){ echo "selected"; unset($_SESSION['sehir']);} ?>>Hakkari</option>
 										<option value="Hatay" <?php if(isset($_SESSION['sehir']) AND $_SESSION['sehir'] == "Hatay"){ echo "selected"; unset($_SESSION['sehir']);} ?>>Hatay</option>
 										<option value="Isparta" <?php if(isset($_SESSION['sehir']) AND $_SESSION['sehir'] == "Isparta"){ echo "selected"; unset($_SESSION['sehir']);} ?>>Isparta</option>
 										<option value="Mersin" <?php if(isset($_SESSION['sehir']) AND $_SESSION['sehir'] == "Mersin"){ echo "selected"; unset($_SESSION['sehir']);} ?>>Mersin</option>
