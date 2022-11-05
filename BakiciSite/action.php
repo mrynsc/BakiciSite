@@ -37,38 +37,41 @@ if (isset($_POST["ekle"])) {
 		header("Location: index.php");
 		exit();
 	}else {
-
-		if ($id != "" and $parola != "" and $bakici != "" and $fiyat != "" and $iletisim != "" and $meslek != "" and $sehir != "" and $calisma != "") {
 		
-			$insert = $db->prepare("INSERT INTO bakicilar SET id = ?, parola = ?, bakici = ?, fiyat = ?, iletisim = ?, meslek = ?, sehir = ?, calisma = ?");
-			$insert = $insert->execute(array($id, $parola, $bakici, $fiyat, $iletisim, $meslek, $sehir, $calisma));
 
-			if ($insert) {
-				/*$_SESSION['message'] = "Veriler Eklendi";*/
-
-				unset($_SESSION["id"]);
-				unset($_SESSION["parola"]);
-				unset($_SESSION["bakici"]);
-				unset($_SESSION["fiyat"]);
-				unset($_SESSION["iletisim"]);
-				unset($_SESSION["meslek"]);
-				unset($_SESSION["sehir"]);
-				unset($_SESSION["calisma"]);
-				
-
-
-	            header("Location: index.php");
-	            exit();
+			if ($id != "" and $parola != "" and $bakici != "" and $fiyat != "" and $iletisim != "" and $meslek != "" and $sehir != "" and $calisma != "" ) {
+		
+				$insert = $db->prepare("INSERT INTO bakicilar SET id = ?, parola = ?, bakici = ?, fiyat = ?, iletisim = ?, meslek = ?, sehir = ?, calisma = ?");
+				$insert = $insert->execute(array($id, $parola, $bakici, $fiyat, $iletisim, $meslek, $sehir, $calisma));
+	
+				if ($insert) {
+					/*$_SESSION['message'] = "Veriler Eklendi";*/
+	
+					unset($_SESSION["id"]);
+					unset($_SESSION["parola"]);
+					unset($_SESSION["bakici"]);
+					unset($_SESSION["fiyat"]);
+					unset($_SESSION["iletisim"]);
+					unset($_SESSION["meslek"]);
+					unset($_SESSION["sehir"]);
+					unset($_SESSION["calisma"]);
+					
+	
+	
+					header("Location: index.php");
+					exit();
+				}else {
+					/*$_SESSION['message'] = "Bir Hata Oldu";*/
+					exit();
+				}
+	
 			}else {
-				/*$_SESSION['message'] = "Bir Hata Oldu";*/
+				/*$_SESSION['message'] = "Lütfen tüm değerleri doldurun";*/
+				header("Location: index.php");
 				exit();
 			}
+		
 
-		}else {
-			/*$_SESSION['message'] = "Lütfen tüm değerleri doldurun";*/
-	        header("Location: index.php");
-	        exit();
-		}
 	}
 }
 
