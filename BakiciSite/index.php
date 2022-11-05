@@ -119,35 +119,21 @@ include_once ("db.php");
 							<div class="mb-3 row">
 								<label  for="id" class="col-sm-4 col-form-label"><b>ID</b></label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control form-control-sm" name="id" id="id" value="<?php if(isset($_SESSION['id'])){ echo $_SESSION['id']; unset($_SESSION['id']);} ?>">
+									<input autocomplete="off" type="text" class="form-control form-control-sm" name="id" id="id" value="<?php if(isset($_SESSION['id'])){ echo $_SESSION['id']; unset($_SESSION['id']);} ?>">
 								</div>
 							</div>
 
 							<div class="mb-3 row">
 								<label   for="parola" class="col-sm-4 col-form-label " ><b>PAROLA</b></label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control form-control-sm" name="parola" id="parola" value="<?php if(isset($_SESSION['parola'])){ echo $_SESSION['parola']; unset($_SESSION['parola']);} ?>">
+									<input  autocomplete="off" type="text" class="form-control form-control-sm" name="parola" id="parola" value="<?php if(isset($_SESSION['parola'])){ echo $_SESSION['parola']; unset($_SESSION['parola']);} ?>">
 								</div>
 							</div>
 
 							<div class="mb-3 row">
 								<label for="bakici" class="col-sm-4 col-form-label"><b>BAKICI</b></label>
 								<div class="col-sm-8">
-									<input type="text" class="form-control form-control-sm" name="bakici" id="bakici" value="<?php if(isset($_SESSION['bakici'])){ echo $_SESSION['bakici']; unset($_SESSION['bakici']);} ?>">
-								</div>
-							</div>
-
-							<div class="mb-3 row">
-								<label for="fiyat" class="col-sm-4 col-form-label"><b>FİYAT</b></label>
-								<div class="col-sm-8">
-									<input type="number" class="form-control form-control-sm" name="fiyat" id="fiyat" value="<?php if(isset($_SESSION['fiyat'])){ echo $_SESSION['fiyat']; unset($_SESSION['fiyat']);} ?>">
-								</div>
-							</div>
-
-							<div class="mb-3 row">
-								<label for="iletisim" class="col-sm-4 col-form-label"><b>İLETİŞİM</b></label>
-								<div class="col-sm-8">
-									<input type="text" class="form-control form-control-sm" name="iletisim" id="iletişim" value="<?php if(isset($_SESSION['iletisim'])){ echo $_SESSION['iletisim']; unset($_SESSION['iletisim']);} ?>">
+									<input   autocomplete="off" type="text" class="form-control form-control-sm" name="bakici" id="bakici" value="<?php if(isset($_SESSION['bakici'])){ echo $_SESSION['bakici']; unset($_SESSION['bakici']);} ?>">
 								</div>
 							</div>
 
@@ -172,6 +158,7 @@ include_once ("db.php");
 									</select>
 								</div>
 							</div>
+
 
 							<div class="mb-3 row">
 								<label for="sehir" class="col-sm-4 col-form-label"><b>ŞEHİR</b></label>
@@ -301,6 +288,28 @@ include_once ("db.php");
 								</div>
 							</div>
 
+
+
+
+
+							<div class="mb-3 row">
+								<label for="fiyat" class="col-sm-4 col-form-label"><b>FİYAT</b></label>
+								<div class="col-sm-8">
+									<input  autocomplete="off" type="number" class="form-control form-control-sm" name="fiyat" id="fiyat" value="<?php if(isset($_SESSION['fiyat'])){ echo $_SESSION['fiyat']; unset($_SESSION['fiyat']);} ?>">
+								</div>
+							</div>
+
+							<div class="mb-3 row">
+								<label for="iletisim" class="col-sm-4 col-form-label"><b>İLETİŞİM</b></label>
+								<div class="col-sm-8">
+									<input autocomplete="off"  type="text" class="form-control form-control-sm" name="iletisim" id="iletişim" value="<?php if(isset($_SESSION['iletisim'])){ echo $_SESSION['iletisim']; unset($_SESSION['iletisim']);} ?>">
+								</div>
+							</div>
+
+							
+
+						
+						
 							<div class="mb-3 row">
 								<label for="durum" class="col-sm-4 col-form-label"><b>DURUM</b></label>
 								<div class="col-sm-8">
