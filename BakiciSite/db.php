@@ -3,7 +3,7 @@
     session_start();
     ob_start();
 
-	$db = new PDO("mysql:host = localhost;dbname=deneme;charset=utf8", "root", "");
+	$db = new PDO("mysql:host = localhost;dbname=kaynaklar;charset=utf8", "root", "");
 
 
 // Güvenlik fonksiyonu
