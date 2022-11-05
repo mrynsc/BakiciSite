@@ -14,7 +14,7 @@ if (isset($_POST["ekle"])) {
 	$meslek 	= Guvenlik($_POST['meslek']);
 	$sehir 		= Guvenlik($_POST['sehir']);
 	$calisma 	= Guvenlik($_POST['calisma']);
-	$durum 		= Guvenlik($_POST['durum']);
+	
 
 	$_SESSION["id"] 		= $id;
 	$_SESSION["parola"] 	= $parola;
@@ -24,7 +24,7 @@ if (isset($_POST["ekle"])) {
 	$_SESSION["meslek"] 	= $meslek;
 	$_SESSION["sehir"] 		= $sehir;
 	$_SESSION["calisma"] 	= $calisma;
-	$_SESSION["durum"] 		= $durum;
+	
 
 
 	$veriSor = $db->prepare("SELECT id FROM bakicilar WHERE id = ?");
@@ -38,10 +38,10 @@ if (isset($_POST["ekle"])) {
 		exit();
 	}else {
 
-		if ($id != "" and $parola != "" and $bakici != "" and $fiyat != "" and $iletisim != "" and $meslek != "" and $sehir != "" and $calisma != "" and $durum!="") {
+		if ($id != "" and $parola != "" and $bakici != "" and $fiyat != "" and $iletisim != "" and $meslek != "" and $sehir != "" and $calisma != "") {
 		
-			$insert = $db->prepare("INSERT INTO bakicilar SET id = ?, parola = ?, bakici = ?, fiyat = ?, iletisim = ?, meslek = ?, sehir = ?, calisma = ?, durum = ?");
-			$insert = $insert->execute(array($id, $parola, $bakici, $fiyat, $iletisim, $meslek, $sehir, $calisma, $durum));
+			$insert = $db->prepare("INSERT INTO bakicilar SET id = ?, parola = ?, bakici = ?, fiyat = ?, iletisim = ?, meslek = ?, sehir = ?, calisma = ?");
+			$insert = $insert->execute(array($id, $parola, $bakici, $fiyat, $iletisim, $meslek, $sehir, $calisma));
 
 			if ($insert) {
 				/*$_SESSION['message'] = "Veriler Eklendi";*/
@@ -54,7 +54,7 @@ if (isset($_POST["ekle"])) {
 				unset($_SESSION["meslek"]);
 				unset($_SESSION["sehir"]);
 				unset($_SESSION["calisma"]);
-				unset($_SESSION["durum"]);
+				
 
 
 	            header("Location: index.php");
@@ -121,7 +121,7 @@ if (isset($_POST["duzenle"])) {
 	$meslek 	= Guvenlik($_POST['meslek']);
 	$sehir 		= Guvenlik($_POST['sehir']);
 	$calisma 	= Guvenlik($_POST['calisma']);
-	$durum 		= Guvenlik($_POST['durum']);
+	
 
 	if ($id != "" and $parola != "") {
 
@@ -164,9 +164,7 @@ if (isset($_POST["duzenle"])) {
 				$duzenleDeger .= "calisma='".$_POST['calisma']."', ";
 			}
 
-			if (isset($_POST['durum']) and $_POST['durum'] != "") {
-				$duzenleDeger .= "durum='".$_POST['durum']."', ";
-			}
+			
 
 			$duzenleDeger = trim($duzenleDeger, ", ");
 
@@ -239,6 +237,8 @@ if (isset($_POST["ara"])) {
 		$aramaDeger .= "&durum=" . $_POST['durum'];
 	}
 
+        
+        
 	header("Location: index.php?ara=true".$aramaDeger);
 }
 
